@@ -259,4 +259,39 @@ export function PromoBadge() {
       expectedOutput: 'Badge vermelho com texto branco, sombra e animação pulse',
     },
   },
+  {
+      id: 'act-10',
+      lessonId: 'lesson-1',
+      order: 1,
+      type: ActivityType.FIX_WITH_CHOICES,
+      title: 'Corrigir CheckoutPage',
+      objective: 'Resolver erro de undefined',
+      instructions: 'Escolha a melhor correção.',
+      status: ActivityStatus.LOCKED,
+      targetFiles: ['CheckoutPage.tsx'],
+      aiGeneratedCode: `
+    const items = cart.items;
+    return items.map(item => <Item key={item.id} />);
+      `,
+      options: [
+        {
+          id: 'fix-1',
+          code: 'const items = cart?.items;',
+          explanation: 'Evita crash mas não garante array.',
+          isCorrect: false,
+        },
+        {
+          id: 'fix-2',
+          code: 'const items = cart?.items ?? [];',
+          explanation: 'Garante array seguro mesmo se undefined.',
+          isCorrect: true,
+        },
+        {
+          id: 'fix-3',
+          code: 'try { ... } catch {}',
+          explanation: 'Esconde o erro.',
+          isCorrect: false,
+        }
+      ]
+    }
 ];
