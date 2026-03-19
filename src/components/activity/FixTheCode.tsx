@@ -8,7 +8,7 @@ import { useFixTheCode } from '@/hooks/useFixTheCode';
 
 export interface FixTheCodeProps {
   activity: Activity;
-  onSubmit: (fixedCode: string) => void;S  
+  onSubmit: (fixedCode: string) => void;
   onRunTests?: (code: string) => Promise<TestResult[]>;
 }
 
@@ -40,7 +40,7 @@ export function FixTheCode({ activity, onSubmit, onRunTests }: FixTheCodeProps) 
       }
     >
       <div className="flex-1 flex overflow-hidden">
-        
+
         <div className="w-[70%] flex flex-col overflow-hidden">
           <div className="flex-1 overflow-hidden">
             <CodeEditor
@@ -68,7 +68,7 @@ export function FixTheCode({ activity, onSubmit, onRunTests }: FixTheCodeProps) 
             )}
           </div>
         </div>
-        
+
         <div className="w-[30%] pl-4 overflow-auto">
           <div className="text-sm text-muted-foreground whitespace-pre-wrap">
             {activity.instructions}
