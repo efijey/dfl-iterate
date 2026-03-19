@@ -32,6 +32,11 @@ const typeConfig: Record<ActivityType, { icon: typeof Search; label: string; col
     label: 'BREAK & FIX',
     color: 'text-destructive'
   },
+  [ActivityType.FIX_THE_CODE]: {
+    icon: Bug,
+    label: 'FIX THE CODE',
+    color: 'text-yellow-400'
+  },
   [ActivityType.VIDEO_CHALLENGE]: {
     icon: Video,
     label: 'VIDEO CHALLENGE',

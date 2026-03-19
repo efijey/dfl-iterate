@@ -67,6 +67,12 @@ export interface Activity {
   editableRegions?: EditableRegion[];
   videoConfig?: VideoConfig;
   visualConfig?: VisualConfig;
+  /** only applies when type === ActivityType.FIX_THE_CODE */
+  testCases?: {
+    input: string;
+    expectedOutput: string;
+    description: string;
+  }[];
 }
 
 export interface ProjectFile {
@@ -100,4 +106,11 @@ export interface GitLogEntry {
   timestamp: Date;
   filesChanged: string[];
   type: 'activity_complete' | 'decision' | 'fix';
+}
+
+/** result from executing a test case */
+export interface TestResult {
+  description: string;
+  passed: boolean;
+  output?: string;
 }
