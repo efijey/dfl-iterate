@@ -256,7 +256,7 @@ export function PromoBadge() {
     visualConfig: {
       imageUrl: 'https://placehold.co/400x120/dc2626/ffffff?text=🔥+PROMOÇÃO+-50%25&font=montserrat',
       caption: 'Badge de promoção - Design aprovado',
-      expectedOutput: 'Badge vermelho com texto branco, sombra e animação pulse',
+      expectedOutput: 'Badge vermelho com texto branco, sombra e animação pulse',      
     },
   },
   
@@ -365,7 +365,39 @@ Corrija o algoritmo para que todos os testes passem.`,
         code: 'try { ... } catch {}',
         explanation: 'Esconde o erro.',
         isCorrect: false,
-      }
-    ]
-  }
+  },
+    ], 
+  },
+  {
+    id: 'act-11',
+    lessonId: 'lesson-1',
+    order: 11,
+    type: ActivityType.STEP_THROUGH,
+    title: 'Simulação de Execução de Código',
+    aiGeneratedCode: `let x = 5;\nlet y = 10;\nlet z = x + y;\nconsole.log(z);`,
+    objective: 'Componente interativo onde o usuário simula execução passo a passo do código.',
+    instructions: `Pergunta: "Qual o valor de X agora?" Input para resposta a cada step`,
+    targetFiles: [],
+    status: ActivityStatus.LOCKED,
+    steps: [
+      {
+        lineNumber: 1,
+        question: "Qual o valor de X agora?",
+        correctAnswer: "5",
+        variables: { x: 5, y: 0, z: 0 },
+      },
+      {
+        lineNumber: 2,
+        question: "Qual o valor de Y agora?",
+        correctAnswer: "10",
+        variables: { x: 5, y: 10, z: 0 },
+      },
+      {
+        lineNumber: 3,
+        question: "Qual o valor de Z agora?",
+        correctAnswer: "15",
+        variables: { x: 5, y: 10, z: 15 },
+      },
+    ],
+  },
 ];

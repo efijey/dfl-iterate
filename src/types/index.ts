@@ -1,4 +1,5 @@
 import { ActivityType, ActivityStatus, ProjectStatus } from '@/enums';
+import { StepVariableValue } from './StepVariableValue';
 
 export interface Lesson {
   id: string;
@@ -28,7 +29,9 @@ export interface ChooseOption {
   id: string;
   label: string;
   description: string;
-
+  code?: string;
+  explanation?: string;
+  isCorrect?: boolean;
 }
 
 export interface EditableRegion {
@@ -50,6 +53,13 @@ export interface VisualConfig {
   expectedOutput?: string;
 }
 
+export interface Step {
+  lineNumber: number;
+  question: string;
+  correctAnswer: string;
+  variables?: Record<string, StepVariableValue>;
+}
+  
 export type bugChallenges = {
   code: string;
   bugLine: number;
@@ -67,7 +77,7 @@ export interface Activity {
   instructions: string;
   targetFiles: string[];
   status: ActivityStatus;
-  options?: DecisionOption[];
+  options?: DecisionOption[]; 
   fixOptions?: FixOption[];
   choices?: ChooseOption[];
   aiGeneratedCode?: string;
@@ -77,6 +87,7 @@ export interface Activity {
   editableRegions?: EditableRegion[];
   videoConfig?: VideoConfig;
   visualConfig?: VisualConfig;
+  steps?: Step[];  
   bugChallenges?: bugChallenges[];
   /** only applies when type === ActivityType.FIX_THE_CODE */
   testCases?: {
