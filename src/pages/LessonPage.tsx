@@ -28,6 +28,7 @@ import { lessonsData } from '@/test-utils/lessons.dummy';
 import { aiMessageTemplates } from '@/test-utils/ai-messages.dummy';
 import { FixWithChoices } from '@/components/activity/FixWithChoices';
 import { ReadAndChoose } from '@/components/molecules/ReadAndChoose/ReadAndChoose';
+import { REPLChallenge } from '@/components/activity/REPLChallenge';
 import { SpotTheBug } from '@/components/activity/SpotTheBug';
 
 export default function LessonPage() {
@@ -362,16 +363,30 @@ export default function LessonPage() {
             }}
           />
         );
-
-        case ActivityType.STEP_THROUGH:
+        
+      case ActivityType.REPL_CHALLENGE:
         return (
-          <StepThrough
+          <REPLChallenge
             activity={currentActivity}
-            onSubmit={(answers) => {
-              handleActivityComplete(currentActivity.id, 'act-step-through-success', true);
+            onSubmit={(executedCommands) => {
+              handleActivityComplete(
+                currentActivity.id,
+                'act-terminal-success',
+                true
+              );
             }}
           />
         );
+
+        case ActivityType.STEP_THROUGH:
+          return (
+            <StepThrough
+              activity={currentActivity}
+              onSubmit={(answers) => {
+                handleActivityComplete(currentActivity.id, 'act-step-through-success', true);
+              }}
+            />
+          );
 
       default:
         return null;

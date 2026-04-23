@@ -365,8 +365,40 @@ Corrija o algoritmo para que todos os testes passem.`,
         code: 'try { ... } catch {}',
         explanation: 'Esconde o erro.',
         isCorrect: false,
+      }
+    ]
   },
-    ], 
+  {
+    id: 'act-20',
+    lessonId: 'lesson-1',
+    order: 11,
+    type: ActivityType.REPL_CHALLENGE,
+    title: 'Primeiros Passos com Git',
+    objective: 'Inicialize um repositório e faça seu primeiro commit.',
+    instructions: `Você acabou de criar o projeto BoxShop localmente.\n\nAgora precisa versionar o código usando Git.\n\nExecute os comandos na ordem correta para inicializar o repositório e registrar o primeiro commit.`,
+    targetFiles: ['.git/'],
+    status: ActivityStatus.LOCKED,
+    initialPrompt: '$ ',
+    commands: [
+      {
+        command: 'git init',
+        description: 'Inicializa o repositório Git local',
+        output: 'Initialized empty Git repository in /boxshop/.git/',
+        validation: 'exact',
+      },
+      {
+        command: 'git add .',
+        description: 'Adiciona todos os arquivos ao stage',
+        output: '',
+        validation: 'exact',
+      },
+      {
+        command: 'git commit -m "feat: initial commit"',
+        description: 'Cria o primeiro commit do projeto',
+        output: '[main (root-commit) a1b2c3d] feat: initial commit\n 12 files changed, 248 insertions(+)',
+        validation: 'exact',
+      },
+    ],
   },
   {
     id: 'act-11',

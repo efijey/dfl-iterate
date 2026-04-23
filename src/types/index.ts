@@ -25,6 +25,7 @@ export type FixOption = {
   explanation: string;
   isCorrect: boolean;
 };
+
 export interface ChooseOption {
   id: string;
   label: string;
@@ -51,6 +52,13 @@ export interface VisualConfig {
   imageUrl: string;
   caption?: string;
   expectedOutput?: string;
+}
+
+export interface TerminalCommandStep {
+  command: string;
+  description: string;
+  output?: string;
+  validation?: 'exact' | 'contains' | 'regex';
 }
 
 export interface Step {
@@ -95,6 +103,8 @@ export interface Activity {
     expectedOutput: string;
     description: string;
   }[];
+  commands?: TerminalCommandStep[];
+  initialPrompt?: string;
 }
 
 export interface ProjectFile {
