@@ -24,6 +24,12 @@ export interface ChooseOption {
 
 }
 
+export interface MatchPairItem {
+  id: string;
+  left: string;
+  right: string;
+}
+
 export interface EditableRegion {
   startLine: number;
   endLine: number;
@@ -55,6 +61,7 @@ export interface Activity {
   status: ActivityStatus;
   options?: DecisionOption[];
   choices?: ChooseOption[];
+  matchPairs?: MatchPairItem[];
   aiGeneratedCode?: string;
   expectedIssues?: string[];
   editableRegions?: EditableRegion[];

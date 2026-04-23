@@ -24,6 +24,7 @@ import { ActivityType, ActivityStatus, ProjectStatus } from '@/enums';
 import { lessonsData } from '@/test-utils/lessons.dummy';
 import { aiMessageTemplates } from '@/test-utils/ai-messages.dummy';
 import { ReadAndChoose } from '@/components/molecules/ReadAndChoose/ReadAndChoose';
+import { MatchPairs } from '@/components/organisms/MatchPairs/MatchPairs';
 
 export default function LessonPage() {
   const { lessonId } = useParams<{ lessonId: string }>();
@@ -213,6 +214,22 @@ export default function LessonPage() {
     if (!currentActivity) return null;
 
     switch (currentActivity.type) {
+
+      case ActivityType.MATCH_PAIRS:
+        return (
+          <MatchPairs
+            activity={currentActivity}
+            onMatch={(pairId) => {
+              handleDecision(pairId);
+            }}
+            onUnmatch={(pairId) => {
+              handleDecision(pairId);
+            }}
+            onComplete={() => {
+              handleActivityComplete(currentActivity.id, 'default-success', true);
+            }}
+          />
+        );
 
       case ActivityType.READ_AND_CHOOSE:
         return (

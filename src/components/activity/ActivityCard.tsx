@@ -13,6 +13,7 @@ interface ActivityCardProps {
 
 const typeIcons = {
   [ActivityType.READ_AND_CHOOSE]: Search,
+  [ActivityType.MATCH_PAIRS]: Search,
   [ActivityType.QUALITY_REVIEW]: Search,
   [ActivityType.CONSTRAINED_EDIT]: Scissors,
   [ActivityType.DECISION_FORK]: GitFork,
@@ -21,6 +22,7 @@ const typeIcons = {
 
 const typeLabels = {
   [ActivityType.READ_AND_CHOOSE]: 'Read And Choose',
+  [ActivityType.MATCH_PAIRS]: 'Match Pairs',
   [ActivityType.QUALITY_REVIEW]: 'Quality Review',
   [ActivityType.CONSTRAINED_EDIT]: 'Constrained Edit',
   [ActivityType.DECISION_FORK]: 'Decision Fork',

@@ -46,6 +46,11 @@ const typeConfig: Record<ActivityType, { icon: typeof Search; label: string; col
     icon: Search,
     label: 'READ AND CHOOSE',
     color: 'text-primary'
+  },
+  [ActivityType.MATCH_PAIRS]: {
+    icon: Search,
+    label: 'MATCH PAIRS',
+    color: 'text-primary'
   }
 };
 
